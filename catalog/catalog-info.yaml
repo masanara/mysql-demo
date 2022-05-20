@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: spring-mysql-demo
+  description: Spring MySQL Demo
+  links:
+    - title: Website
+      url: http://www.example.com
+    - title: Documentation
+      url: http://www.example.com/docs
+  tags:
+    - app-accelerator
+    - java
+    - spring
+    - web
+    - tanzu
+  annotations:
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  targets:
+    - ./components/demo-app/demo-app.yaml
+    - ./components/mysql/mysql.yaml
+    - ./apis/user-api/user-api.yaml
+    - ./resources/db-example/db-example.yaml
+    - ./systems/demo/demo.yaml

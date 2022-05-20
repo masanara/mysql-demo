@@ -1,0 +1,70 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: user-api
+  description: User API
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default-team
+  system: demo
+  apiProvidedBy: demo-app
+  definition: |
+    openapi: "3.0.0"
+    info:
+      version: 1.0.1
+      title: User management API
+      license:
+        name: MIT
+    servers:
+      - url: http://spring-mysql-demo.mnara-dev.tap.nsx.techlab.netone.co.jp/demo
+    paths:
+      /all:
+        get:
+          tags:
+            - "user"
+          summary: "List all users"
+          description: "Return all users"
+          responses:
+            200:
+              description: "Success"  
+              content:
+                application/json:
+                    schema:
+                      $ref: "#/definitions/user"
+      /add:
+        post:
+          tags:
+            - "user"
+          summary: create user data
+          requestBody:
+            required: true
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    email:
+                      type: string
+          responses:
+            200:
+              description: "successful operation"
+              content:
+                application/json:
+                  schema: 
+                    $ref: "#/definitions/user"
+    definitions:
+      user:
+        properties:
+          id:
+            type: "integer"
+            format: "int64"
+            exmaple: "10"
+          name:
+            type: "string"
+            example: "username"
+          email:
+            type: "string"
+            example: "user@example.com"

@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: demo
+  description: Demo user Application
+  tags:
+    - java
+  annotations:
+    'backstage.io/techdocs-ref': dir:.
+spec:
+  owner: default-team
+  domain: cloud-apps

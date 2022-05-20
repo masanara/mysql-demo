@@ -1,0 +1,9 @@
+site_name: 'demo-app'
+
+nav:
+  - Home: index.md
+  - Description: description.md
+  - Links: links.md
+
+plugins:
+  - techdocs-core

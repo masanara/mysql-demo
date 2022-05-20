@@ -1,0 +1,7 @@
+site_name: 'demo-db'
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core

@@ -1,0 +1,7 @@
+site_name: 'db-example'
+
+nav:
+  - Home: index.md
+
+plugins:
+  - techdocs-core
