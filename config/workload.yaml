@@ -7,6 +7,9 @@ metadata:
     app.kubernetes.io/part-of: demo-app
     tier: apptier
 spec:
+  env:
+  - name: MYSQL_HOST
+    value: mysql
   params:
   - name: annotations
     value:
