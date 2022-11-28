@@ -1,4 +1,4 @@
-SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='dev.local/mysql-demo-source')
+SOURCE_IMAGE = os.getenv("SOURCE_IMAGE", default='dev.local/mysql-demo-src')
 LOCAL_PATH = os.getenv("LOCAL_PATH", default='.')
 NAMESPACE = os.getenv("NAMESPACE", default='default')
 allow_k8s_contexts('cl1-admin@cl1')
@@ -9,6 +9,9 @@ k8s_custom_deploy(
                " --local-path " + LOCAL_PATH +
                " --source-image " + SOURCE_IMAGE +
                " --namespace " + NAMESPACE +
+               " --env MYSQL_HOST=mysql.mysql" +
+               " --env MYSQL_USER=springuser" +
+               " --env MYSQL_PASSWORD=ThePassword" +
                " --yes >/dev/null " +
               "&& kubectl get workload mysql-demo --namespace " + NAMESPACE + " -o yaml",
     delete_cmd="tanzu apps workload delete -f config/workload.yaml --namespace " + NAMESPACE + " --yes",
